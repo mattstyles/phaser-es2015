@@ -8,7 +8,7 @@
     "clean": "rm -rf dist && mkdir dist",
     "prebuild": "npm run clean",
     "build": "browserify src > dist/bundle.js",
-    "postbuild": "cp src/index.html dist/index.html",
+    "postbuild": "cp src/index.html dist/index.html && cp -r src/assets dist/assets",
     "start": "budo src:index.js --dir src --live"
   },
   "browserify": {
