@@ -1,13 +1,13 @@
 {
   "name": "phaser-es2015",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Example of Phaser with some ES2015/16 stuff",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf dist && mkdir dist",
     "prebuild": "npm run clean",
-    "build": "browserify src > dist/bundle.js",
+    "build": "browserify src | uglifyjs > dist/index.js",
     "postbuild": "cp src/index.html dist/index.html && cp -r src/assets dist/assets",
     "start": "budo src:index.js --dir src --live"
   },
@@ -25,14 +25,18 @@
       "urban"
     ]
   },
+  "engines" : {
+    "node" : ">=4.0.0"
+  },
   "author": "Matt Styles <matt@veryfizzyjelly.com> (http://github.com/mattstyles)",
-  "license": "ISC",
+  "license": "WTFPL",
   "dependencies": {},
   "devDependencies": {
     "babel-preset-urban": "^0.4.0",
     "babelify": "^7.2.0",
     "browserify": "^13.0.0",
     "browserify-shim": "^3.8.12",
-    "budo": "^8.1.0"
+    "budo": "^8.1.0",
+    "uglifyjs": "^2.4.10"
   }
 }
