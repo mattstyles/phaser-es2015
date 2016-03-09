@@ -1,0 +1,38 @@
+{
+  "name": "phaser-es2015",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf dist && mkdir dist",
+    "prebuild": "npm run clean",
+    "build": "browserify src > dist/bundle.js",
+    "postbuild": "cp src/index.html dist/index.html",
+    "start": "budo src:index.js --dir src --live"
+  },
+  "browserify": {
+    "transform": [
+      "babelify",
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "Phaser": "global:Phaser"
+  },
+  "babel": {
+    "presets": [
+      "urban"
+    ]
+  },
+  "author": "Matt Styles <matt@veryfizzyjelly.com> (http://github.com/mattstyles)",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-urban": "^0.4.0",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
+    "browserify-shim": "^3.8.12",
+    "budo": "^8.1.0"
+  }
+}
