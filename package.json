@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -rf dist && mkdir dist",
+    "clean": "rimraf dist && mkdirp dist",
     "prebuild": "npm run clean",
     "build": "browserify src | uglifyjs > dist/index.js",
     "postbuild": "cp src/index.html dist/index.html && cp -r src/assets dist/assets",
@@ -25,8 +25,8 @@
       "urban"
     ]
   },
-  "engines" : {
-    "node" : ">=4.0.0"
+  "engines": {
+    "node": ">=4.0.0"
   },
   "author": "Matt Styles <matt@veryfizzyjelly.com> (http://github.com/mattstyles)",
   "license": "WTFPL",
@@ -37,6 +37,8 @@
     "browserify": "^13.0.0",
     "browserify-shim": "^3.8.12",
     "budo": "^8.1.0",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.5.2",
     "uglifyjs": "^2.4.10"
   }
 }
